@@ -7,7 +7,7 @@ var output_options = {
 
 module.exports = {
     entry: {
-        app: __dirname + '/app/app.jsx'
+        todo: __dirname + '/todo/todo.jsx'
     },
     output: {
         path        : 'public/',

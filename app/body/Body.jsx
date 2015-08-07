@@ -6,7 +6,7 @@ const Body = React.createClass({
     render() {
         return (
             <div className="app-body">
-                Works!
+                Works2!
             </div>
         );
     }
