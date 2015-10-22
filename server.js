@@ -31,6 +31,13 @@ dispatcher.onGet('/', function (request, response) {
     });
 });
 
+dispatcher.onGet('/data', function (request, response) {
+    fs.readFile('data/data.json', function (err, file) {
+        response.writeHead(200, { 'Content-Type': 'application/json' });
+        response.end(file);
+    });
+});
+
 dispatcher.onGet(/^\/.+/, function (request, response) {
     response.writeHead(404, { 'Content-Type': 'text/plain' });
     response.end('404 Not found');

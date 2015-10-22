@@ -21,15 +21,15 @@ module.exports = function (grunt) {
 
         shell: {
             webpack: {
-                command: 'webpack --config webpack.config.js'
+                command: 'webpack'
             },
 
             'webpack-watch': {
-                command: 'webpack --config webpack.config.js --watch'
+                command: 'webpack --watch'
             },
 
             'hot-server': {
-                command: 'webpack-dev-server --hot --inline --host localhost --port 4321 --config webpack.config.js --colors'
+                command: 'webpack-dev-server --inline --hot --progress --port 4321'
             }
         },
 

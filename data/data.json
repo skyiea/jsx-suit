@@ -1,0 +1,20 @@
+{
+    "tabs": [
+        {
+            "name": "First tab",
+            "desc": "Description Description Description Description Description Description Description Description Description Description Description Description"
+        },
+        {
+            "name": "Second tab",
+            "desc": "Description Description Description Description Description Description Description Description Description Description Description Description"
+        },
+        {
+            "name": "Third tab",
+            "desc": "Description Description Description Description Description Description Description Description Description Description Description Description"
+        },
+        {
+            "name": "Fourth tab",
+            "desc": "Description Description Description Description Description Description Description Description Description Description Description Description"
+        }
+    ]
+}

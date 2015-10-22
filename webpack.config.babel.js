@@ -1,13 +1,17 @@
-var output_options = {
+import path from 'path';
+
+const output_options = {
     chunks      : false,
     chunkModules: false,
     colors      : true,
     timings     : true
 };
 
-module.exports = {
+const APP_PATH = path.join(__dirname, 'app');
+
+export default {
     entry: {
-        app: __dirname + '/app/app.jsx'
+        app: path.join(APP_PATH, 'app.jsx')
     },
     output: {
         path        : 'public/',
@@ -28,6 +32,7 @@ module.exports = {
         ]
     },
     resolve: {
+        root: APP_PATH,
         extensions: [ '', '.js', '.jsx' ]
     },
     stats: output_options,
