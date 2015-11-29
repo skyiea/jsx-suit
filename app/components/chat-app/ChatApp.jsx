@@ -34,7 +34,7 @@ class ChatApp extends React.Component {
                         text = `Користувач ${user} вийшов з чату.`;
                         break;
                     case 'online-count':
-                        text = `Кількість користувачів онлайн ${message}`
+                        text = `Кількість користувачів онлайн ${message}`;
                         break;
                     default:
                 }

@@ -31,6 +31,8 @@ io.on('connection', (socket) => {
 
             socket.
                 on('message', (message) => {
+                    console.log('Message from', userName, ':', message);
+
                     socket.broadcast.emit('message', {
                         user: userName,
                         text: message
