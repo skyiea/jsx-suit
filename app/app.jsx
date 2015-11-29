@@ -1,7 +1,7 @@
 import 'babel/polyfill';
 
-import App from 'components/body/Body';
+import ChatApp from 'components/chat-app/ChatApp';
 
 import 'app.less';
 
-ReactDOM.render(<App />, document.getElementById('app-container'));
+ReactDOM.render(<ChatApp />, document.getElementById('app-container'));
