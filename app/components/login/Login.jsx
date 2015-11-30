@@ -39,7 +39,7 @@ class Login extends React.Component {
                 <input
                         ref="input"
                         type="text"
-                        placeholder="Введіть своє ім'я"
+                        placeholder="Введіть своє ім'я.."
                         value={this.state.name}
                         onKeyDown={this.handleKeyDown}
                         onChange={this.handleChange}/>

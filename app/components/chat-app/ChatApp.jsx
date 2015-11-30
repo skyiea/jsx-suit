@@ -55,7 +55,8 @@ class ChatApp extends React.Component {
 
         this.addMessage({
             user: this.state.userName,
-            text: message
+            text: message,
+            date: Date.now()
         });
     };
 
@@ -70,12 +71,14 @@ class ChatApp extends React.Component {
     };
 
     render() {
+        const { logged, log } = this.state;
+
         return (
             <div className="chat-app">
                 {
-                    this.state.logged ?
+                    logged ?
                         <Chat
-                                log={this.state.log}
+                                log={log}
                                 onMessage={this.handleMessage}/> :
                         <Login onLogin={this.handleLogin}/>
                 }

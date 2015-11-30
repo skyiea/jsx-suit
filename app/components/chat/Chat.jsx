@@ -22,9 +22,9 @@ class Chat extends React.Component {
         }
     };
 
-    onChange = (e) => {
+    onChange = () => {
         this.setState({
-            inputText: e.target.value
+            inputText: this.refs.input.value
         });
     };
 
@@ -38,15 +38,22 @@ class Chat extends React.Component {
                 <div className="messages">
                     {
                         this.props.log.map((message, index) => {
-                            const { type, text, user } = message;
+                            const { type, text, user, date } = message;
+
+                            const convertDateToTime = (timestamp) => {
+                                const date = new Date(timestamp);
+
+                                return `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+                            };
 
                             return (
                                 <div key={index} className="message">
                                     {
                                         type === 'service' ?
                                             <span className="service">{message.text}</span> :
-                                            <span>
-                                                <span className="user">{`${user}: `}</span>
+                                            <span className="user">
+                                                <span className="time">{`[${convertDateToTime(date)}] `}</span>
+                                                <span className="name">{`${user}`}</span>
                                                 <span className="text">{text}</span>
                                             </span>
                                     }
@@ -59,6 +66,7 @@ class Chat extends React.Component {
                         ref="input"
                         className="text-input"
                         type="text"
+                        placeholder="Введіть повідомлення.."
                         value={this.state.inputText}
                         onKeyDown={this.onKeyDown}
                         onChange={this.onChange}/>
