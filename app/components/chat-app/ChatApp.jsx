@@ -34,7 +34,7 @@ class ChatApp extends React.Component {
                         text = `Користувач ${user} вийшов з чату.`;
                         break;
                     case 'online-count':
-                        text = `Кількість користувачів онлайн ${message}`;
+                        text = `Кількість користувачів онлайн ${message}.`;
                         break;
                     default:
                 }
@@ -74,7 +74,7 @@ class ChatApp extends React.Component {
         const { logged, log } = this.state;
 
         return (
-            <div className="chat-app">
+            <main>
                 {
                     logged ?
                         <Chat
@@ -82,7 +82,7 @@ class ChatApp extends React.Component {
                                 onMessage={this.handleMessage}/> :
                         <Login onLogin={this.handleLogin}/>
                 }
-            </div>
+            </main>
         );
     }
 }

@@ -34,7 +34,7 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div className="login">
+            <section className="login">
                 <h1>Авторизація</h1>
                 <input
                         ref="input"
@@ -43,7 +43,7 @@ class Login extends React.Component {
                         value={this.state.name}
                         onKeyDown={this.handleKeyDown}
                         onChange={this.handleChange}/>
-            </div>
+            </section>
         );
     }
 }

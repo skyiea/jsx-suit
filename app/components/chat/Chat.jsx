@@ -34,8 +34,8 @@ class Chat extends React.Component {
 
     render() {
         return (
-            <div className="chat">
-                <div className="messages">
+            <section className="chat">
+                <section className="messages">
                     {
                         this.props.log.map((message, index) => {
                             const { type, text, user, date } = message;
@@ -61,7 +61,7 @@ class Chat extends React.Component {
                             );
                         })
                     }
-                </div>
+                </section>
                 <input
                         ref="input"
                         className="text-input"
@@ -70,7 +70,7 @@ class Chat extends React.Component {
                         value={this.state.inputText}
                         onKeyDown={this.onKeyDown}
                         onChange={this.onChange}/>
-            </div>
+            </section>
         );
     }
 }
