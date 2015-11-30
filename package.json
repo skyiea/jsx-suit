@@ -7,7 +7,9 @@
     "server": "nodemon --watch server.js --exec babel-node -- server.js",
     "build": "NODE_ENV=production webpack -p --bail",
     "watch": "webpack --progress --watch",
-    "hot": "webpack-dev-server --inline --hot --progress"
+    "watchs": "webpack --progress --watch --devtool source-map",
+    "hot": "webpack-dev-server --inline --hot --progress",
+    "hots": "webpack-dev-server --inline --hot --progress --devtool source-map"
   },
   "dependencies": {
     "express": "^4.10.2",
