@@ -13,19 +13,37 @@
         display: flex;
         height: $height;
         border-bottom: 1px solid $color-black;
+        box-shadow: 0 2px 2px $color-grey;
+
+        justify-content: center;
 
         line-height: $height;
 
         background-color: $color-grey;
 
-        >* {
-            margin: 0 1rem;
+        >a {
+            padding: 0 1rem;
+
+            color: $color-black;
+            font-weight: 600;
+            text: {
+                decoration: none;
+                transform: uppercase;
+                shadow: 0 1px $color-white;
+            }
+
+            &:visited {
+                color: $color-black;
+            }
+
+            &:hover,
+            &.active {
+                color: #777;
+            }
         }
     }
 
     >.page {
-        @include page-default();
-
         display: flex;
 
         flex-grow: 1;

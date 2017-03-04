@@ -9,7 +9,7 @@ class Home extends Component {
     render() {
         return (
             <section styleName="home-page">
-                Home
+                Home Page
             </section>
         );
     }

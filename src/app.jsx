@@ -34,4 +34,4 @@ ReactDOM.render((
             </Route>
         </Router>
     </Provider>
-), document.querySelector('main#react-app'));
+), document.querySelector('main'));

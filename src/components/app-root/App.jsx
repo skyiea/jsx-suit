@@ -9,14 +9,25 @@ import styles from './App.scss';
 class App extends Component {
     render() {
         const {
+            location,
+
             children
         } = this.props;
 
         return (
             <section styleName="app">
                 <nav>
-                    <Link to="/home">Home</Link>
-                    <Link to="/about">About</Link>
+                    <Link
+                            styleName={location.pathname === '/home' && 'active'}
+                            to="/home">
+                        Home
+                    </Link>
+
+                    <Link
+                            styleName={location.pathname === '/about' && 'active'}
+                            to="/about">
+                        About
+                    </Link>
                 </nav>
 
                 <section styleName="page">

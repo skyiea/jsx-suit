@@ -2,7 +2,10 @@ const webpack       = require('webpack');
 const path          = require('path');
 const HTMLPlugin    = require('html-webpack-plugin');
 
+const stats = require('./tools/webpackStats');
+
 const ENV = process.env.NODE_ENV;
+const isProduction = ENV === 'prod';
 
 const PATHS = {};
 PATHS.src   = path.resolve(__dirname, 'src');
@@ -75,14 +78,11 @@ module.exports = {
         }),
 
         new webpack.DefinePlugin({
-            __ENV__: JSON.stringify(ENV) === 'prod' ? '"prod"' : '"dev"'
+            // Redux uses this value internally, otherwise it will generate error in console
+            'process.env.NODE_ENV': JSON.stringify(isProduction ? 'production' : 'development'),
+            __ENV__: isProduction ? '"prod"' : '"dev"'
         })
     ],
 
-    stats: {
-        chunks      : false,
-        chunkModules: false,
-        colors      : true,
-        timings     : true
-    }
+    stats
 };

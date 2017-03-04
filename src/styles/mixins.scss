@@ -1,3 +1,9 @@
+@import './animations';
+
 @mixin page-default() {
     padding: 1rem;
+
+    flex-grow: 1;
+
+    animation: fade-in 150ms ease-out;
 }

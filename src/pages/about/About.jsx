@@ -9,12 +9,8 @@ class About extends Component {
     render() {
         return (
             <section styleName="about-page">
-                <p>
-                    React application suit
-                </p>
-
-                <a href="https://github.com/skyiea/jsx-suit">
-                    View on GitHub
+                Created using <a href="https://github.com/skyiea/jsx-suit">
+                    JSX Suit
                 </a>
             </section>
         );

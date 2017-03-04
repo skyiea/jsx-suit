@@ -9,7 +9,7 @@ class PageNotFound extends Component {
     render() {
         return (
             <section styleName="page-not-found">
-                Page not found
+                Page Not Found
             </section>
         );
     }
