@@ -10,7 +10,7 @@ const server = http.Server(app);
 app.use('/public', express.static('public'));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.join(__dirname, 'public/html/index.html'));
 });
 
 server.listen(PORT, () => {

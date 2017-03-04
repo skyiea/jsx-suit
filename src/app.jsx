@@ -1,4 +1,5 @@
 import 'babel-polyfill';
+import 'babel-regenerator-runtime';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -12,7 +13,7 @@ import {
 import App from './components/app-root/App';
 import Home from './pages/home/Home';
 
-import 'app.scss';
+import './app.scss';
 
 ReactDOM.render((
     <Router history={browserHistory}>
@@ -20,4 +21,4 @@ ReactDOM.render((
             <IndexRoute component={Home}/>
         </Route>
     </Router>
-), document.getElementById('react-app'));
+), document.querySelector('main#react-app'));

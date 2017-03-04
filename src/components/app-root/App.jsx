@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 
-import './App.scss';
+import CSSModules from '../../utils/css-modules';
 
+import styles from './App.scss';
+
+@CSSModules(styles)
 class App extends Component {
     render() {
         const {
@@ -9,7 +12,7 @@ class App extends Component {
         } = this.props;
 
         return (
-            <section className="app">
+            <section styleName="app">
                 <header>
                     <a href="/#/">React application</a>
                 </header>

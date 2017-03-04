@@ -1,34 +1,28 @@
-const webpack   = require('webpack');
-const path      = require('path');
-
-const outputOptions = {
-    chunks      : false,
-    chunkModules: false,
-    colors      : true,
-    timings     : true
-};
+const webpack       = require('webpack');
+const path          = require('path');
+const HTMLPlugin    = require('html-webpack-plugin');
 
 const PATHS = {};
-const PORT = require('./tools/devPort');
 
 PATHS.src   = path.resolve(__dirname, 'src');
 PATHS.dist  = path.resolve(__dirname, 'public');
 
 const sourceMapsOn = process.env.SOURCE_MAPS === 'on';
+const isCamelCasedSCSS = /([A-Z][a-z0-9]*)+\.scss$/;
 
 module.exports = {
     context: PATHS.src,
     devtool: sourceMapsOn && '#source-map',
 
     entry: {
-        app: 'app'
+        app: './app'
     },
 
     output: {
         path: PATHS.dist,
         publicPath: 'public/',
-        sourceMapFilename: '[file].map',
-        filename: '[name].min.js'
+        sourceMapFilename: 'js/[file].map',
+        filename: 'js/[name].min.js'
     },
 
     module: {
@@ -37,16 +31,24 @@ module.exports = {
                 test: /\.jsx?/,
                 exclude: /node_modules/,
                 loaders: [
-                    'react-hot',
                     'babel',
                     'eslint'
                 ]
             },
             {
-                test: /\.scss/,
+                test: /\.scss$/,
+                exclude: isCamelCasedSCSS,
                 loaders: [
                     'style',
                     `css${sourceMapsOn ? '?sourceMap' : ''}`,
+                    `sass${sourceMapsOn ? '?sourceMap' : ''}`
+                ]
+            },
+            {
+                test: isCamelCasedSCSS,
+                loaders: [
+                    'style',
+                    `css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]${sourceMapsOn ? '&sourceMap' : ''}`,
                     `sass${sourceMapsOn ? '?sourceMap' : ''}`
                 ]
             },
@@ -62,26 +64,24 @@ module.exports = {
     },
 
     resolve: {
-        root: PATHS.src,
         extensions: [ '', '.js', '.jsx' ]
     },
 
     plugins: [
+        new HTMLPlugin({
+            filename: `html/index.html`,
+            template: path.resolve(PATHS.src, 'html/index.html'),
+        }),
+
         new webpack.DefinePlugin({
             DEBUG: JSON.stringify(process.env.NODE_ENV) !== '"production"'
         })
     ],
 
-    stats: outputOptions,
-
-    devServer: {
-        host    : 'localhost',
-        port    : '1234',
-        quiet   : false,
-        noInfo  : false,
-        proxy: {
-            '*': `http://localhost:${PORT}/`
-        },
-        stats: outputOptions
+    stats: {
+        chunks      : false,
+        chunkModules: false,
+        colors      : true,
+        timings     : true
     }
 };

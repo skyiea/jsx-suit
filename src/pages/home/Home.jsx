@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 
-import './Home.scss';
+import CSSModules from '../../utils/css-modules';
 
+import styles from './Home.scss';
+
+@CSSModules(styles)
 class Home extends Component {
     render() {
         return (
-            <section className="home-page">
+            <section styleName="home-page">
                 Home
             </section>
         );
