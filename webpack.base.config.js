@@ -23,7 +23,7 @@ module.exports = {
         path: PATHS.dist,
         publicPath: 'public/',
         sourceMapFilename: 'js/[file].map',
-        filename: 'js/[name].min.js'
+        filename: 'js/[name].bundle.js'
     },
 
     module: {
@@ -32,7 +32,6 @@ module.exports = {
                 test: /\.jsx?/,
                 exclude: /node_modules/,
                 loaders: [
-                    'react-hot',
                     'babel',
                     'eslint'
                 ]

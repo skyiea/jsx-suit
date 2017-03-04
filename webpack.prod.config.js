@@ -3,10 +3,7 @@ const merge     = require('webpack-merge');
 
 const baseConfig = require('./webpack.base.config');
 
-module.exports = merge.smartStrategy({
-    entry: 'prepend',
-    plugins: 'prepend'
-})(baseConfig, {
+module.exports = merge(baseConfig, {
     plugins: [
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.DedupePlugin(),

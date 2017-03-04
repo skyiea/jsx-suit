@@ -1,15 +1,26 @@
-const path      = require('path');
-const webpack   = require('webpack');
-const merge     = require('webpack-merge');
+const merge = require('webpack-merge');
 
 const baseConfig = require('./webpack.base.config');
 
 const PORT = require('./tools/devPort');
 
 module.exports = merge.smartStrategy({
-    entry: 'prepend',
-    plugins: 'prepend'
+    'module.loaders.loaders': 'replace'
 })(baseConfig, {
+    module: {
+        loaders: [
+            {
+                test: /\.jsx?/,
+                exclude: /node_modules/,
+                loaders: [
+                    'react-hot',
+                    'babel',
+                    'eslint'
+                ]
+            }
+        ]
+    },
+
     devServer: {
         host    : 'localhost',
         port    : '1234',
