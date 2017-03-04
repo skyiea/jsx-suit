@@ -2,8 +2,9 @@ const webpack       = require('webpack');
 const path          = require('path');
 const HTMLPlugin    = require('html-webpack-plugin');
 
-const PATHS = {};
+const ENV = process.env.NODE_ENV;
 
+const PATHS = {};
 PATHS.src   = path.resolve(__dirname, 'src');
 PATHS.dist  = path.resolve(__dirname, 'public');
 
@@ -31,6 +32,7 @@ module.exports = {
                 test: /\.jsx?/,
                 exclude: /node_modules/,
                 loaders: [
+                    'react-hot',
                     'babel',
                     'eslint'
                 ]
@@ -74,7 +76,7 @@ module.exports = {
         }),
 
         new webpack.DefinePlugin({
-            DEBUG: JSON.stringify(process.env.NODE_ENV) !== '"production"'
+            __ENV__: JSON.stringify(ENV) === 'prod' ? '"prod"' : '"dev"'
         })
     ],
 

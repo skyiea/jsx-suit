@@ -7,10 +7,6 @@ module.exports = merge.smartStrategy({
     entry: 'prepend',
     plugins: 'prepend'
 })(baseConfig, {
-    output: {
-        publicPath: '/'
-    },
-
     plugins: [
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.DedupePlugin(),

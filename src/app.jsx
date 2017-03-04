@@ -10,15 +10,23 @@ import {
     browserHistory,
 } from 'react-router';
 
-import App from './components/app-root/App';
-import Home from './pages/home/Home';
+import { Provider } from 'react-redux';
+
+import createStore from './store/createStore';
+
+import App from './components/app-root/AppContainer';
+import Home from './pages/home/HomeContainer';
 
 import './app.scss';
 
+const store = createStore();
+
 ReactDOM.render((
-    <Router history={browserHistory}>
-        <Route path="/" component={App}>
-            <IndexRoute component={Home}/>
-        </Route>
-    </Router>
+    <Provider store={store}>
+        <Router history={browserHistory}>
+            <Route path="/" component={App}>
+                <IndexRoute component={Home}/>
+            </Route>
+        </Router>
+    </Provider>
 ), document.querySelector('main#react-app'));

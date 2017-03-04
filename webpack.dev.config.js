@@ -10,20 +10,6 @@ module.exports = merge.smartStrategy({
     entry: 'prepend',
     plugins: 'prepend'
 })(baseConfig, {
-    module: {
-        loaders: [
-            {
-                test: /\.jsx?/,
-                exclude: /node_modules/,
-                loaders: [
-                    'react-hot',
-                    'babel',
-                    'eslint'
-                ]
-            }
-        ]
-    },
-
     devServer: {
         host    : 'localhost',
         port    : '1234',

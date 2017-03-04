@@ -14,14 +14,14 @@
 
         line-height: $height;
 
-        background-color: $dark;
+        background-color: $color-dark;
     }
 
     >header {
         text-align: center;
 
         >a {
-            color: $orange;
+            color: $color-orange;
             text-transform: uppercase;
             text-decoration: none;
         }
@@ -37,7 +37,7 @@
         font-size: 32px;
         text-transform: uppercase;
 
-        background-color: $light-grey;
+        background-color: $color-light-grey;
     }
 
     >footer {
@@ -46,7 +46,7 @@
         text-align: right;
 
         >a {
-            color: $light-grey;
+            color: $color-light-grey;
             text-decoration: none;
             font-style: italic;
         }
