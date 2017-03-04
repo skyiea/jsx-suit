@@ -30,13 +30,6 @@ export default {
                 loaders: [
                     'react-hot',
                     'babel',
-                    'autoimport?config[]=checkIfUsed&' + [
-                        'React=>react',
-                        'ReactDOM=react-dom',
-                        '_=lodash',
-                        'classnames',
-                        '{ReactClass}=react-core-decorators'
-                    ].join(','),
                     'eslint'
                 ]
             },
