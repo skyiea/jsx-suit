@@ -70,7 +70,7 @@ module.exports = {
 
     plugins: [
         new HTMLPlugin({
-            filename: `html/index.html`,
+            filename: 'html/index.html',
             template: path.resolve(PATHS.src, 'html/index.html'),
         }),
 

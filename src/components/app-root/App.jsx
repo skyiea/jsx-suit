@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 import CSSModules from '../../utils/css-modules';
 
@@ -13,17 +14,14 @@ class App extends Component {
 
         return (
             <section styleName="app">
-                <header>
-                    <a href="/#/">React application</a>
-                </header>
+                <nav>
+                    <Link to="/home">Home</Link>
+                    <Link to="/about">About</Link>
+                </nav>
 
-                <main>
+                <section styleName="page">
                     {children}
-                </main>
-
-                <footer>
-                    <a href="https://github.com/skyiea/jsx-suit">GitHub</a>
-                </footer>
+                </section>
             </section>
         );
     }

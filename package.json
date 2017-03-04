@@ -7,7 +7,7 @@
   },
   "scripts": {
     "prepare": "npm install -g webpack webpack-dev-server && npm install",
-    "server": "nodemon --watch server.js server.js",
+    "server": "nodemon --watch static-server.js static-server.js",
     "build": "NODE_ENV=prod webpack --config webpack.prod.config.js --progress --bail",
     "prod": "npm run build",
     "watch": "webpack --config webpack.dev.config.js --progress --watch",
