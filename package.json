@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "prepare": "npm install -g webpack webpack-dev-server && npm install",
-    "server": "nodemon --watch server.js --exec babel-node -- server.js",
-    "build": "NODE_ENV=production webpack -p --bail",
+    "server": "nodemon --watch server.js server.js",
+    "build": "NODE_ENV=production webpack --progress -p --bail",
     "watch": "webpack --progress --watch",
     "watchs": "SOURCE_MAPS=on webpack --progress --watch",
     "hot": "webpack-dev-server --inline --hot --progress",

@@ -1,8 +1,8 @@
-import path from 'path';
-import express from 'express';
-import http from 'http';
+const path      = require('path');
+const express   = require('express');
+const http      = require('http');
 
-const PORT = 3000;
+const PORT = require('./tools/devPort');
 
 const app = express();
 const server = http.Server(app);
@@ -14,5 +14,5 @@ app.get('/', (req, res) => {
 });
 
 server.listen(PORT, () => {
-    console.log('Server listening on: http://*:%s', PORT);
+    console.log(`Server listening on: http://localhost:${PORT}`);
 });

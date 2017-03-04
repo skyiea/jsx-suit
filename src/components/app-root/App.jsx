@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 
-import './carcass.scss';
+import './App.scss';
 
-class Carcass extends Component {
+class App extends Component {
     render() {
+        const {
+            children
+        } = this.props;
+
         return (
-            <section className="carcass">
+            <section className="app">
                 <header>
                     <a href="/#/">React application</a>
                 </header>
 
                 <main>
-                    {this.props.children}
+                    {children}
                 </main>
 
                 <footer>
@@ -22,4 +26,4 @@ class Carcass extends Component {
     }
 }
 
-export default Carcass;
+export default App;

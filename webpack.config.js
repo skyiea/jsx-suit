@@ -1,27 +1,36 @@
-import webpack from 'webpack';
-import path from 'path';
+const webpack   = require('webpack');
+const path      = require('path');
 
-const output_options = {
+const outputOptions = {
     chunks      : false,
     chunkModules: false,
     colors      : true,
     timings     : true
 };
 
-const app_path = path.join(__dirname, 'app/');
-const with_source_maps = process.env.SOURCE_MAPS === 'on';
+const PATHS = {};
+const PORT = require('./tools/devPort');
 
-export default {
-    devtool: with_source_maps && '#source-map',
+PATHS.src   = path.resolve(__dirname, 'src');
+PATHS.dist  = path.resolve(__dirname, 'public');
+
+const sourceMapsOn = process.env.SOURCE_MAPS === 'on';
+
+module.exports = {
+    context: PATHS.src,
+    devtool: sourceMapsOn && '#source-map',
+
     entry: {
-        app: path.join(app_path, 'app.jsx')
+        app: 'app'
     },
+
     output: {
-        path: 'public/',
+        path: PATHS.dist,
         publicPath: 'public/',
         sourceMapFilename: '[file].map',
         filename: '[name].min.js'
     },
+
     module: {
         loaders: [
             {
@@ -37,8 +46,8 @@ export default {
                 test: /\.scss/,
                 loaders: [
                     'style',
-                    `css${with_source_maps ? '?sourceMap' : ''}`,
-                    `sass${with_source_maps ? '?sourceMap' : ''}`
+                    `css${sourceMapsOn ? '?sourceMap' : ''}`,
+                    `sass${sourceMapsOn ? '?sourceMap' : ''}`
                 ]
             },
             {
@@ -47,28 +56,32 @@ export default {
             },
             {
                 test: /\.(woff|woff2|ttf)$/,
-                loader: `${with_source_maps ? 'url' : 'file'}?name=fonts/[name].[ext]`
+                loader: `${sourceMapsOn ? 'url' : 'file'}?name=fonts/[name].[ext]`
             }
         ]
     },
+
     resolve: {
-        root: app_path,
+        root: PATHS.src,
         extensions: [ '', '.js', '.jsx' ]
     },
+
     plugins: [
         new webpack.DefinePlugin({
             DEBUG: JSON.stringify(process.env.NODE_ENV) !== '"production"'
         })
     ],
-    stats: output_options,
+
+    stats: outputOptions,
+
     devServer: {
         host    : 'localhost',
         port    : '1234',
         quiet   : false,
         noInfo  : false,
         proxy: {
-            '*': 'http://localhost:3000/'
+            '*': `http://localhost:${PORT}/`
         },
-        stats: output_options
+        stats: outputOptions
     }
 };

@@ -1,13 +1,13 @@
-@import '../styles/colors';
+@import '../../styles/colors';
 
-.carcass {
+.app {
     display: flex;
     height: 100%;
 
     flex-direction: column;
 
-    > header,
-    > footer {
+    >header,
+    >footer {
         $height: 30px;
 
         height: $height;
@@ -17,17 +17,17 @@
         background-color: $dark;
     }
 
-    > header {
+    >header {
         text-align: center;
 
-        > a {
+        >a {
             color: $orange;
             text-transform: uppercase;
             text-decoration: none;
         }
     }
 
-    > main {
+    >main {
         display: flex;
 
         flex-grow: 1;
@@ -40,12 +40,12 @@
         background-color: $light-grey;
     }
 
-    > footer {
+    >footer {
         padding: 0 20px;
 
         text-align: right;
 
-        > a {
+        >a {
             color: $light-grey;
             text-decoration: none;
             font-style: italic;

@@ -9,15 +9,15 @@ import {
     browserHistory,
 } from 'react-router';
 
-import Carcass from 'carcass/Carcass';
-import Index from 'pages/index/Index';
+import App from './components/app-root/App';
+import Home from './pages/home/Home';
 
 import 'app.scss';
 
 ReactDOM.render((
     <Router history={browserHistory}>
-        <Route path="/" component={Carcass}>
-            <IndexRoute component={Index}/>
+        <Route path="/" component={App}>
+            <IndexRoute component={Home}/>
         </Route>
     </Router>
 ), document.getElementById('react-app'));
