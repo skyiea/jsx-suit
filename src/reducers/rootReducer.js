@@ -1,7 +1,9 @@
-// import STATUS from '../enums/requestStatus';
+// import STATUS from '../constants/requestStatus';
 // import TYPES from '../actions/actionTypes';
 
-function rootReducer(state, action) {
+import createReducer from '../utils/redux-helpers/createReducer';
+
+function reducer(state, action) {
     const {
         type,
         // status,
@@ -15,4 +17,4 @@ function rootReducer(state, action) {
     return state;
 }
 
-export default rootReducer;
+export default createReducer(reducer);

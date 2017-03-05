@@ -18,7 +18,7 @@ class App extends Component {
             <section styleName="app">
                 <nav>
                     <Link
-                            styleName={[ '/' , '/home' ].indexOf(location.pathname) !== -1 && 'active'}
+                            styleName={[ '/', '/home' ].indexOf(location.pathname) !== -1 && 'active'}
                             to="/home">
                         Home
                     </Link>
