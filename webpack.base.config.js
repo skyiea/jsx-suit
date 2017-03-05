@@ -1,6 +1,7 @@
 const webpack       = require('webpack');
 const path          = require('path');
 const HTMLPlugin    = require('html-webpack-plugin');
+const autoprefixer  = require('autoprefixer');
 
 const stats = require('./tools/webpackStats');
 
@@ -45,6 +46,7 @@ module.exports = {
                 loaders: [
                     'style',
                     `css${sourceMapsOn ? '?sourceMap' : ''}`,
+                    'postcss',
                     `sass${sourceMapsOn ? '?sourceMap' : ''}`
                 ]
             },
@@ -53,6 +55,7 @@ module.exports = {
                 loaders: [
                     'style',
                     `css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]${sourceMapsOn ? '&sourceMap' : ''}`,
+                    'postcss',
                     `sass${sourceMapsOn ? '?sourceMap' : ''}`
                 ]
             },
@@ -69,6 +72,19 @@ module.exports = {
 
     resolve: {
         extensions: [ '', '.js', '.jsx' ]
+    },
+
+    postcss() {
+        return [
+            autoprefixer({
+                browsers: [
+                    // default prefixing
+                    '> 1%', 'last 2 versions', 'Firefox ESR',
+                    // excluding unsupported IE
+                    'not ie < 10'
+                ]
+            })
+        ];
     },
 
     plugins: [

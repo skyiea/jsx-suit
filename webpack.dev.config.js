@@ -1,4 +1,6 @@
 const merge = require('webpack-merge');
+const path = require('path');
+const WriteFilePlugin = require('write-file-webpack-plugin');
 
 const baseConfig = require('./webpack.base.config');
 
@@ -22,11 +24,19 @@ module.exports = merge.smartStrategy({
         ]
     },
 
+    plugins: [
+        new WriteFilePlugin({
+            test: /^html\//,
+            log: false
+        })
+    ],
+
     devServer: {
         host    : 'localhost',
         port    : '1234',
         quiet   : false,
         noInfo  : false,
+        outputPath: path.resolve(__dirname, 'public'),
         proxy: {
             '*': `http://localhost:${PORT}/`
         },
