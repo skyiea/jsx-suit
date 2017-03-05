@@ -1,4 +1,8 @@
-@import 'styles/reset';
+@import './styles/reset';
+@import './styles/vars';
+@import './styles/colors';
+
+$default-fs: 16;
 
 html,
 body,
@@ -6,13 +10,25 @@ main {
     height: 100%;
 }
 
+html {
+    $default-fs: 16;
+
+    font-size: unquote($px-in-rem * 100 / $default-fs + '%');
+}
+
 body {
     margin: 0;
     padding: 0;
     border: 0;
 
-    font-family: Georgia, Helvetica, Helvetica Neue;
+    color: $color-black;
+    font: {
+        family: $font-family;
+        size: 1.6rem;
+    }
     -webkit-font-smoothing: antialiased;
+
+    background-color: $color-white;
 }
 
 * {

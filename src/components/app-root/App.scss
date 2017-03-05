@@ -8,21 +8,22 @@
     flex-direction: column;
 
     >nav {
-        $height: 3rem;
+        $height: 5rem;
 
         display: flex;
         height: $height;
         border-bottom: 1px solid $color-black;
-        box-shadow: 0 2px 2px $color-grey;
+        box-shadow: 0 2px 2px $color-light-grey;
 
         justify-content: center;
 
         line-height: $height;
 
-        background-color: $color-grey;
+        background-color: $color-light-grey;
+        overflow: hidden;
 
         >a {
-            padding: 0 1rem;
+            padding: 0 2rem;
 
             color: $color-black;
             font-weight: 600;
